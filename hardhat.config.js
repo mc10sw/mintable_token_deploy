@@ -13,6 +13,9 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 
+//
+let usdtPrivateKey:String = 'local developer\'s usdt wallet private key';
+var infuraApiKey:String = 'api key';
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
@@ -22,11 +25,9 @@ module.exports = {
     hardhat: {
       blockGasLimit: 10000000,
     },
-    gpex_testnet: {
-      url: 'https://testnet.rpc.gb.gpexdev.com/',
-      accounts: {
-        mnemonic: 'shuffle actress pig story tilt erode shop moral innocent useless collect hope'
-      },
+    sepolia: {
+      url: 'https://sepolia.infura.io/v3/' + infuraApiKey,
+      accounts: ['0x' + usdtPrivateKey]
     }
   },
 };
